@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import { useHydrated } from "@/hooks/useHydrated";
 import { cn } from "@/lib/utils";
 
 interface FadeInProps {
@@ -19,6 +20,7 @@ export function FadeIn({
   direction = "up",
   duration = 0.5,
 }: FadeInProps) {
+  const hydrated = useHydrated();
   const directions = {
     up: { y: 24, x: 0 },
     down: { y: -24, x: 0 },
@@ -26,6 +28,10 @@ export function FadeIn({
     right: { x: -24, y: 0 },
     none: { x: 0, y: 0 },
   };
+
+  if (!hydrated) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
@@ -51,6 +57,12 @@ export function StaggerContainer({
   className,
   staggerDelay = 0.1,
 }: StaggerContainerProps) {
+  const hydrated = useHydrated();
+
+  if (!hydrated) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       initial="hidden"
@@ -74,6 +86,12 @@ export function StaggerItem({
   children: ReactNode;
   className?: string;
 }) {
+  const hydrated = useHydrated();
+
+  if (!hydrated) {
+    return <div className={cn(className)}>{children}</div>;
+  }
+
   return (
     <motion.div
       variants={{

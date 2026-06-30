@@ -2,11 +2,13 @@
 
 import { testimonials } from "@/data/content";
 import { Section, SectionHeading } from "@/components/ui/SectionHeading";
+import { useHydrated } from "@/hooks/useHydrated";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Testimonials() {
+  const hydrated = useHydrated();
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -40,9 +42,13 @@ export function Testimonials() {
           <motion.div
             key={current}
             custom={direction}
-            initial={{ opacity: 0, x: direction * 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: direction * -50 }}
+            {...(hydrated
+              ? {
+                  initial: { opacity: 0, x: direction * 50 },
+                  animate: { opacity: 1, x: 0 },
+                  exit: { opacity: 0, x: direction * -50 },
+                }
+              : { initial: false })}
             transition={{ duration: 0.3 }}
             className="rounded-2xl border border-slate-200/60 bg-white p-8 shadow-sm sm:p-10"
           >

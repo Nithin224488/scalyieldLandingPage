@@ -12,9 +12,15 @@ import {
   revenueRanges,
 } from "@/lib/form-schema";
 import {
+  countryCodes,
+  defaultCountryDial,
+  formatFullPhone,
+} from "@/data/country-codes";
+import {
   getTrackingParams,
   fireMetaLeadEvent,
   fireGA4LeadEvent,
+  submitMetaCAPIEvent,
   submitToWebhook,
 } from "@/lib/tracking";
 import { generateEventId } from "@/lib/utils";
@@ -39,6 +45,9 @@ export function ContactForm() {
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      countryCode: defaultCountryDial,
+    },
   });
 
   useEffect(() => {
@@ -60,8 +69,11 @@ export function ContactForm() {
     const eventId = data.event_id || generateEventId();
 
     try {
+      const fullPhone = formatFullPhone(data.countryCode, data.phone);
+
       const success = await submitToWebhook({
         ...data,
+        fullPhone,
         event_id: eventId,
         submittedAt: new Date().toISOString(),
       });
@@ -74,6 +86,16 @@ export function ContactForm() {
 
       fireMetaLeadEvent(eventId);
       fireGA4LeadEvent(eventId);
+      submitMetaCAPIEvent({
+        event_id: eventId,
+        email: data.email,
+        phone: data.phone,
+        countryCode: data.countryCode,
+        name: data.name,
+        landingPageUrl: data.landingPageUrl,
+        fbp: data.fbp,
+        fbc: data.fbc,
+      });
 
       router.push("/thank-you");
     } catch {
@@ -113,8 +135,15 @@ export function ContactForm() {
             <label htmlFor="name" className={labelClass}>
               Name *
             </label>
-            <input id="name" className={inputClass} placeholder="Your full name" {...register("name")} />
-            {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>}
+            <input
+              id="name"
+              className={inputClass}
+              placeholder="Your full name"
+              {...register("name")}
+            />
+            {errors.name && (
+              <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>
+            )}
           </div>
 
           <div>
@@ -128,7 +157,11 @@ export function ContactForm() {
               placeholder="you@company.com"
               {...register("email")}
             />
-            {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
+            {errors.email && (
+              <p className="mt-1 text-xs text-red-500">
+                {errors.email.message}
+              </p>
+            )}
           </div>
         </div>
 
@@ -137,14 +170,38 @@ export function ContactForm() {
             <label htmlFor="phone" className={labelClass}>
               Phone *
             </label>
-            <input
-              id="phone"
-              type="tel"
-              className={inputClass}
-              placeholder="+91 98765 43210"
-              {...register("phone")}
-            />
-            {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>}
+            <div className="flex gap-2">
+              <select
+                id="countryCode"
+                aria-label="Country code"
+                defaultValue="91"
+                className={` w-[7.5rem] shrink-0 px-2`}
+                {...register("countryCode")}
+              >
+                {countryCodes.map((country) => (
+                  <option
+                    key={`${country.iso}-${country.dial}`}
+                    value={country.dial}
+                  >
+                    {country.flag} +{country.dial}
+                  </option>
+                ))}
+              </select>
+              <input
+                id="phone"
+                type="tel"
+                inputMode="numeric"
+                autoComplete="tel-national"
+                className={`${inputClass} min-w-0 flex-1`}
+                placeholder="9876543210"
+                {...register("phone")}
+              />
+            </div>
+            {(errors.countryCode || errors.phone) && (
+              <p className="mt-1 text-xs text-red-500">
+                {errors.countryCode?.message || errors.phone?.message}
+              </p>
+            )}
           </div>
 
           <div>
@@ -158,7 +215,9 @@ export function ContactForm() {
               {...register("businessName")}
             />
             {errors.businessName && (
-              <p className="mt-1 text-xs text-red-500">{errors.businessName.message}</p>
+              <p className="mt-1 text-xs text-red-500">
+                {errors.businessName.message}
+              </p>
             )}
           </div>
         </div>
@@ -174,7 +233,11 @@ export function ContactForm() {
             placeholder="https://yourwebsite.com"
             {...register("website")}
           />
-          {errors.website && <p className="mt-1 text-xs text-red-500">{errors.website.message}</p>}
+          {errors.website && (
+            <p className="mt-1 text-xs text-red-500">
+              {errors.website.message}
+            </p>
+          )}
         </div>
 
         <div className="grid gap-5 sm:grid-cols-3">
@@ -182,7 +245,12 @@ export function ContactForm() {
             <label htmlFor="industry" className={labelClass}>
               Industry *
             </label>
-            <select id="industry" className={inputClass} defaultValue="" {...register("industry")}>
+            <select
+              id="industry"
+              className={inputClass}
+              defaultValue=""
+              {...register("industry")}
+            >
               <option value="" disabled>
                 Select industry
               </option>
@@ -193,7 +261,9 @@ export function ContactForm() {
               ))}
             </select>
             {errors.industry && (
-              <p className="mt-1 text-xs text-red-500">{errors.industry.message}</p>
+              <p className="mt-1 text-xs text-red-500">
+                {errors.industry.message}
+              </p>
             )}
           </div>
 
@@ -217,7 +287,9 @@ export function ContactForm() {
               ))}
             </select>
             {errors.monthlyAdSpend && (
-              <p className="mt-1 text-xs text-red-500">{errors.monthlyAdSpend.message}</p>
+              <p className="mt-1 text-xs text-red-500">
+                {errors.monthlyAdSpend.message}
+              </p>
             )}
           </div>
 
@@ -241,7 +313,9 @@ export function ContactForm() {
               ))}
             </select>
             {errors.monthlyRevenue && (
-              <p className="mt-1 text-xs text-red-500">{errors.monthlyRevenue.message}</p>
+              <p className="mt-1 text-xs text-red-500">
+                {errors.monthlyRevenue.message}
+              </p>
             )}
           </div>
         </div>
@@ -258,7 +332,9 @@ export function ContactForm() {
             {...register("biggestChallenge")}
           />
           {errors.biggestChallenge && (
-            <p className="mt-1 text-xs text-red-500">{errors.biggestChallenge.message}</p>
+            <p className="mt-1 text-xs text-red-500">
+              {errors.biggestChallenge.message}
+            </p>
           )}
         </div>
 
@@ -290,10 +366,17 @@ export function ContactForm() {
         </div>
 
         {submitError && (
-          <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">{submitError}</p>
+          <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">
+            {submitError}
+          </p>
         )}
 
-        <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />

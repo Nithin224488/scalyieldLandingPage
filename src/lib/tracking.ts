@@ -12,20 +12,24 @@ export interface TrackingParams {
   event_id?: string;
 }
 
-export function getTrackingParams(searchParams: URLSearchParams): TrackingParams {
+export function getTrackingParams(
+  searchParams: URLSearchParams,
+): TrackingParams {
   return {
     fbclid: searchParams.get("fbclid") ?? undefined,
     fbp: getCookie("_fbp") ?? undefined,
-    fbc: getCookie("_fbc") ?? searchParams.get("fbclid")
-      ? `fb.1.${Date.now()}.${searchParams.get("fbclid")}`
-      : undefined,
+    fbc:
+      (getCookie("_fbc") ?? searchParams.get("fbclid"))
+        ? `fb.1.${Date.now()}.${searchParams.get("fbclid")}`
+        : undefined,
     utm_source: searchParams.get("utm_source") ?? undefined,
     utm_medium: searchParams.get("utm_medium") ?? undefined,
     utm_campaign: searchParams.get("utm_campaign") ?? undefined,
     utm_content: searchParams.get("utm_content") ?? undefined,
     utm_term: searchParams.get("utm_term") ?? undefined,
     referrer: typeof document !== "undefined" ? document.referrer : undefined,
-    landingPageUrl: typeof window !== "undefined" ? window.location.href : undefined,
+    landingPageUrl:
+      typeof window !== "undefined" ? window.location.href : undefined,
   };
 }
 
@@ -51,13 +55,41 @@ export function fireGA4LeadEvent(eventId: string) {
   }
 }
 
-export async function submitToWebhook(data: Record<string, unknown>): Promise<boolean> {
+export interface MetaCAPIEventData {
+  event_id: string;
+  email: string;
+  phone: string;
+  countryCode?: string;
+  name: string;
+  landingPageUrl?: string;
+  fbp?: string;
+  fbc?: string;
+}
+
+/** Sends a server-side Lead event to Meta CAPI (best-effort, non-blocking). */
+export async function submitMetaCAPIEvent(
+  data: MetaCAPIEventData,
+): Promise<void> {
+  try {
+    await fetch("/api/meta-conversion", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+  } catch (error) {
+    console.error("Meta CAPI submission failed:", error);
+  }
+}
+
+export async function submitToWebhook(
+  data: Record<string, unknown>,
+): Promise<boolean> {
   const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL;
   if (!webhookUrl || webhookUrl.includes("YOUR_SCRIPT_ID")) {
     console.warn("Webhook URL not configured. Form data:", data);
     return true;
   }
-
+  console.log("Submitting to webhook:", webhookUrl, data);
   try {
     const response = await fetch(webhookUrl, {
       method: "POST",
