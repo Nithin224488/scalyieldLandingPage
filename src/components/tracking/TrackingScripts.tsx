@@ -1,16 +1,19 @@
+import { resolveTrackingIds } from "@/config/tracking.public";
+
+function isPlaceholder(value: string) {
+  return !value || value.includes("XXXX") || value.includes("your-");
+}
+
 /**
- * Tracking scripts are inlined at build time for static hosts (e.g. GitHub Pages).
- * NEXT_PUBLIC_* vars must be set when running `npm run build` in CI/local.
+ * Inlined at build time so static hosts (GitHub Pages) include pixel in HTML
+ * without relying on CI secrets or client hydration.
  */
 export function TrackingScripts() {
-  const ga4Id = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
-  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const { metaPixelId, ga4MeasurementId, gtmId } = resolveTrackingIds();
 
   return (
     <>
-      {/* Google Tag Manager */}
-      {gtmId && !gtmId.includes("XXXX") && (
+      {!isPlaceholder(gtmId) && (
         <>
           <script
             dangerouslySetInnerHTML={{
@@ -32,21 +35,22 @@ export function TrackingScripts() {
         </>
       )}
 
-      {/* Google Analytics 4 */}
-      {ga4Id && !ga4Id.includes("XXXX") && (
+      {!isPlaceholder(ga4MeasurementId) && (
         <>
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`} />
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}
+          />
           <script
             dangerouslySetInnerHTML={{
               __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-              gtag('js',new Date());gtag('config','${ga4Id}');`,
+              gtag('js',new Date());gtag('config','${ga4MeasurementId}');`,
             }}
           />
         </>
       )}
 
-      {/* Meta Pixel — inlined so static hosts detect it without waiting for hydration */}
-      {pixelId && !pixelId.includes("XXXX") && (
+      {!isPlaceholder(metaPixelId) && (
         <>
           <script
             dangerouslySetInnerHTML={{
@@ -55,7 +59,7 @@ export function TrackingScripts() {
               n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
               t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
               document,'script','https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init','${pixelId}');fbq('track','PageView');`,
+              fbq('init','${metaPixelId}');fbq('track','PageView');`,
             }}
           />
           <noscript>
@@ -63,7 +67,7 @@ export function TrackingScripts() {
               height="1"
               width="1"
               style={{ display: "none" }}
-              src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
+              src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
               alt=""
             />
           </noscript>

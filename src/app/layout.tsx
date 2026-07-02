@@ -47,9 +47,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <TrackingScripts />
+      </head>
       <body className="font-sans">
         <HashScroll />
-        <TrackingScripts />
         {children}
       </body>
     </html>

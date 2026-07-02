@@ -5,6 +5,8 @@ const repoName = "scalyieldLandingPage";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  output: "export",
+  images: { unoptimized: true },
   // GitHub Pages project-site deploy: https://<user>.github.io/<repo>/
   ...(isProd
     ? {
