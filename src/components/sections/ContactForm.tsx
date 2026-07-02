@@ -13,10 +13,10 @@ import {
   revenueRanges,
 } from "@/lib/form-schema";
 import {
-  countryCodes,
   defaultCountryDial,
   formatFullPhone,
 } from "@/data/country-codes";
+import { CountryCodeSelect } from "@/components/sections/CountryCodeSelect";
 import {
   getTrackingParams,
   fireMetaLeadEvent,
@@ -172,22 +172,7 @@ export function ContactForm() {
               Phone *
             </label>
             <div className="flex gap-2">
-              <select
-                id="countryCode"
-                aria-label="Country code"
-                defaultValue="91"
-                className={` w-[7.5rem] shrink-0 px-2`}
-                {...register("countryCode")}
-              >
-                {countryCodes.map((country) => (
-                  <option
-                    key={`${country.iso}-${country.dial}`}
-                    value={country.dial}
-                  >
-                    {country.flag} +{country.dial}
-                  </option>
-                ))}
-              </select>
+              <CountryCodeSelect {...register("countryCode")} />
               <input
                 id="phone"
                 type="tel"

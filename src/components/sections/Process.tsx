@@ -1,12 +1,10 @@
-"use client";
-
 import { processSteps } from "@/data/content";
 import { Section, SectionHeading } from "@/components/ui/SectionHeading";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export function Process() {
   return (
-    <Section id="process">
+    <Section id="process" className="content-auto">
       <SectionHeading
         badge="Our Process"
         title="From First Call to Live Campaigns"

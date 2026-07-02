@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "export",
   images: { unoptimized: true },
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
   // GitHub Pages project-site deploy: https://<user>.github.io/<repo>/
   ...(isProd
     ? {

@@ -1,5 +1,3 @@
-"use client";
-
 import { whyChooseUs } from "@/data/content";
 import { Section, SectionHeading } from "@/components/ui/SectionHeading";
 import { StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
@@ -16,7 +14,7 @@ const icons = [BarChart3, Eye, MessageSquare, Rocket, FlaskConical, Target];
 
 export function WhyChooseUs() {
   return (
-    <Section id="why-us" className="bg-slate-50/50">
+    <Section id="why-us" className="bg-slate-50/50 content-auto">
       <SectionHeading
         badge="Why Choose Us"
         title="Built for Performance, Not Promises"

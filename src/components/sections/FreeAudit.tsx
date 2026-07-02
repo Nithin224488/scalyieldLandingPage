@@ -1,5 +1,3 @@
-"use client";
-
 import { freeAuditDeliverables, platforms } from "@/data/content";
 import { Section, SectionHeading } from "@/components/ui/SectionHeading";
 import { StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
@@ -7,7 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 
 export function FreeAudit() {
   return (
-    <Section id="free-audit" className="border-y border-slate-100 bg-slate-50/50">
+    <Section id="free-audit" className="border-y border-slate-100 bg-slate-50/50 content-auto">
       <SectionHeading
         badge="Free Audit"
         title="See Exactly What We'd Fix — Before You Commit"
@@ -31,14 +29,14 @@ export function FreeAudit() {
       </StaggerContainer>
 
       <div className="mt-14 text-center">
-        <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+        <p className="mb-4 text-sm font-medium text-slate-500">
           Platforms & tools we work with
         </p>
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-3">
           {platforms.map((platform) => (
             <span
               key={platform}
-              className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-slate-600"
+              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600"
             >
               {platform}
             </span>

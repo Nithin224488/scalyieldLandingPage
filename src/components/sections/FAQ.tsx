@@ -4,13 +4,12 @@ import { faqs } from "@/data/content";
 import { Section, SectionHeading } from "@/components/ui/SectionHeading";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <Section id="faq">
+    <Section id="faq" className="content-auto">
       <SectionHeading
         badge="FAQ"
         title="Frequently Asked Questions"
@@ -38,20 +37,16 @@ export function FAQ() {
                 />
               </button>
 
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <p className="px-6 pb-5 text-sm leading-relaxed text-slate-500">
-                      {faq.answer}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div
+                className="grid transition-[grid-template-rows] duration-200 ease-out"
+                style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+              >
+                <div className="overflow-hidden">
+                  <p className="px-6 pb-5 text-sm leading-relaxed text-slate-500">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
             </div>
           );
         })}

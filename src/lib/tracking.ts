@@ -66,10 +66,14 @@ export interface MetaCAPIEventData {
   fbc?: string;
 }
 
-/** Sends a server-side Lead event to Meta CAPI (best-effort, non-blocking). */
+/** Sends a server-side Lead event to Meta CAPI (skipped on static hosts like GitHub Pages). */
 export async function submitMetaCAPIEvent(
   data: MetaCAPIEventData,
 ): Promise<void> {
+  if (typeof window === "undefined") return;
+  // Static export hosts have no API routes — avoid pointless 405 errors in production.
+  if (!window.location.hostname.includes("localhost")) return;
+
   try {
     await fetch("/api/meta-conversion", {
       method: "POST",
