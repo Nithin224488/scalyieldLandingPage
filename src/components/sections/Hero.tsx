@@ -2,11 +2,11 @@
 
 import { freeAuditDeliverables, trustBadges } from "@/data/content";
 import { Button } from "@/components/ui/Button";
+import { AnchorLink } from "@/components/ui/AnchorLink";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { useHydrated } from "@/hooks/useHydrated";
 import { ArrowRight, CheckCircle2, ClipboardList } from "lucide-react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 function AuditPreviewCard() {
   const hydrated = useHydrated();
@@ -110,13 +110,13 @@ export function Hero() {
 
               <FadeIn delay={0.3}>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Link href="/#contact">
+                  <AnchorLink href="/#contact">
                     <Button size="lg" className="w-full sm:w-auto">
                       Book Free Strategy Call
                       <ArrowRight className="h-4 w-4" />
                     </Button>
-                  </Link>
-                  <Link href="/#free-audit">
+                  </AnchorLink>
+                  <AnchorLink href="/#free-audit">
                     <Button
                       variant="outline"
                       size="lg"
@@ -124,7 +124,7 @@ export function Hero() {
                     >
                       See What&apos;s Included
                     </Button>
-                  </Link>
+                  </AnchorLink>
                 </div>
               </FadeIn>
 

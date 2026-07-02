@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { AnchorLink } from "@/components/ui/AnchorLink";
 import Link from "next/link";
 
 export function Navbar() {
@@ -38,20 +39,20 @@ export function Navbar() {
 
         <div className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
-            <Link
+            <AnchorLink
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-slate-600 transition-colors hover:text-primary"
             >
               {link.label}
-            </Link>
+            </AnchorLink>
           ))}
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link href="/#contact">
+          <AnchorLink href="/#contact">
             <Button size="sm">Get Free Strategy Call</Button>
-          </Link>
+          </AnchorLink>
         </div>
 
         <button
@@ -71,20 +72,20 @@ export function Navbar() {
         <div className="border-t border-slate-200/60 bg-white/95 px-4 py-4 backdrop-blur-xl lg:hidden">
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
-              <Link
+              <AnchorLink
                 key={link.href}
                 href={link.href}
                 className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-primary"
                 onClick={() => setIsMobileOpen(false)}
               >
                 {link.label}
-              </Link>
+              </AnchorLink>
             ))}
-            <Link href="/#contact" onClick={() => setIsMobileOpen(false)}>
+            <AnchorLink href="/#contact" onClick={() => setIsMobileOpen(false)}>
               <Button className="w-full" size="sm">
                 Get Free Strategy Call
               </Button>
-            </Link>
+            </AnchorLink>
           </div>
         </div>
       )}

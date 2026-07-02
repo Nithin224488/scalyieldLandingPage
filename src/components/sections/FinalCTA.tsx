@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
+import { AnchorLink } from "@/components/ui/AnchorLink";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 export function FinalCTA() {
   return (
@@ -17,17 +17,17 @@ export function FinalCTA() {
           exactly what we&apos;d change — whether you work with us or not.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link href="/#contact">
+          <AnchorLink href="/#contact">
             <Button size="lg">
               Book Free Consultation
               <ArrowRight className="h-4 w-4" />
             </Button>
-          </Link>
-          <Link href="/#contact">
+          </AnchorLink>
+          <AnchorLink href="/#contact">
             <Button variant="outline" size="lg">
               Get Free Audit
             </Button>
-          </Link>
+          </AnchorLink>
         </div>
       </div>
     </section>

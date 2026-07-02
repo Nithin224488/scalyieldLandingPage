@@ -1,5 +1,6 @@
 import { siteConfig, navLinks, services } from "@/data/content";
 import Link from "next/link";
+import { AnchorLink } from "@/components/ui/AnchorLink";
 import { Mail, Phone } from "lucide-react";
 
 export function Footer() {
@@ -46,12 +47,12 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <AnchorLink
                     href={link.href}
                     className="text-sm text-slate-500 transition-colors hover:text-primary"
                   >
                     {link.label}
-                  </Link>
+                  </AnchorLink>
                 </li>
               ))}
             </ul>

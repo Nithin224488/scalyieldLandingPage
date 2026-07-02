@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { TrackingScripts } from "@/components/tracking/TrackingScripts";
+import { HashScroll } from "@/components/HashScroll";
 import "./globals.css";
 
 const inter = Inter({
@@ -47,6 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans">
+        <HashScroll />
         <TrackingScripts />
         {children}
       </body>
