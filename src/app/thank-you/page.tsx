@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Thank You — ScaleYield",
+  title: "Thank You — ScalYield",
   description: "Your strategy call has been booked. We'll be in touch shortly.",
   robots: { index: false, follow: false },
 };
@@ -22,8 +22,9 @@ export default function ThankYouPage() {
         </h1>
 
         <p className="mt-4 text-lg leading-relaxed text-slate-500">
-          Thank you for booking your free strategy call. Our team will review your
-          information and reach out within 24 hours to schedule your consultation.
+          Thank you for booking your free strategy call. Our team will review
+          your information and reach out within 24 hours to schedule your
+          consultation.
         </p>
 
         <div className="mt-8 rounded-2xl border border-slate-200/60 bg-white p-6 text-left shadow-sm">
@@ -34,7 +35,10 @@ export default function ThankYouPage() {
               "Prepare a custom growth strategy for your call",
               "Reach out via email or phone to confirm your slot",
             ].map((step) => (
-              <li key={step} className="flex items-start gap-3 text-sm text-slate-600">
+              <li
+                key={step}
+                className="flex items-start gap-3 text-sm text-slate-600"
+              >
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 {step}
               </li>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import {
   contactFormSchema,
   type ContactFormData,
@@ -347,9 +348,9 @@ export function ContactForm() {
           />
           <label htmlFor="privacyAgreed" className="text-sm text-slate-600">
             I agree to the{" "}
-            <a href="#" className="font-medium text-primary hover:underline">
+            <Link href="/privacy-policy" className="font-medium text-primary hover:underline">
               Privacy Policy
-            </a>
+            </Link>
             . *
           </label>
         </div>

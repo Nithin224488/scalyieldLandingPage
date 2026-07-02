@@ -9,8 +9,8 @@ export function Process() {
     <Section id="process">
       <SectionHeading
         badge="Our Process"
-        title="From Strategy to Scale in 5 Steps"
-        subtitle="A proven framework that takes you from discovery to profitable growth."
+        title="From First Call to Live Campaigns"
+        subtitle="A clear, step-by-step path — no black boxes, no vague timelines."
       />
 
       <div className="relative mx-auto max-w-3xl">

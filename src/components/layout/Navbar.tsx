@@ -26,7 +26,7 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#" className="flex items-center gap-2">
+        <a href="/#" className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white shadow-lg shadow-primary/30">
             SY
           </div>
@@ -48,7 +48,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="#contact">
+          <a href="/#contact">
             <Button size="sm">Get Free Strategy Call</Button>
           </a>
         </div>
@@ -58,7 +58,11 @@ export function Navbar() {
           onClick={() => setIsMobileOpen(!isMobileOpen)}
           aria-label="Toggle menu"
         >
-          {isMobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isMobileOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
         </button>
       </nav>
 
@@ -75,7 +79,7 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a href="#contact" onClick={() => setIsMobileOpen(false)}>
+            <a href="/#contact" onClick={() => setIsMobileOpen(false)}>
               <Button className="w-full" size="sm">
                 Get Free Strategy Call
               </Button>

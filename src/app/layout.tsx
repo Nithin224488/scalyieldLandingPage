@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ScaleYield — Data-Driven Performance Marketing Agency",
+  title: "ScalYield — Data-Driven Performance Marketing Agency",
   description:
-    "Generate more qualified leads, increase ROAS, and grow profitably with Meta Ads, Google Ads, and Conversion Optimization. Book your free strategy call today.",
+    "Book a free Meta Ads audit. We review your campaigns, tracking, and landing pages — then give you a clear plan to generate more qualified leads.",
   keywords: [
     "performance marketing",
     "Meta Ads",
@@ -23,23 +23,27 @@ export const metadata: Metadata = {
     "digital marketing agency",
   ],
   openGraph: {
-    title: "ScaleYield — Data-Driven Performance Marketing Agency",
+    title: "ScalYield — Data-Driven Performance Marketing Agency",
     description:
-      "Generate more qualified leads, increase ROAS, and grow profitably with Meta Ads, Google Ads, and Conversion Optimization.",
+      "Book a free Meta Ads audit. Campaign review, tracking check, and a clear growth roadmap — no obligation.",
     type: "website",
     locale: "en_IN",
-    siteName: "ScaleYield",
+    siteName: "ScalYield",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ScaleYield — Performance Marketing Agency",
+    title: "ScalYield — Performance Marketing Agency",
     description:
-      "Generate more qualified leads, increase ROAS, and grow profitably.",
+      "Free Meta Ads audit and performance marketing for growing businesses.",
   },
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans">

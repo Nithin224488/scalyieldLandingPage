@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "ScaleYield",
+  name: "ScalYield",
   tagline: "Performance Marketing Agency",
   email: "hello@scaleyield.com",
   phone: "+91 98765 43210",
@@ -7,20 +7,58 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: "Services", href: "#services" },
-  { label: "Results", href: "#results" },
-  { label: "Process", href: "#process" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "Process", href: "/#process" },
+  { label: "Free Audit", href: "/#free-audit" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
 ];
 
-export const trustBadges = ["Meta Ads", "Shopify"];
+export const trustBadges = [
+  "Meta Ads Specialist",
+  "CAPI & GA4 Tracking",
+  "No long-term contracts",
+];
 
-export const stats = [
-  { value: 100, suffix: "+", label: "Businesses Helped" },
-  { value: 50, prefix: "₹", suffix: "M+", label: "Ad Spend Managed" },
-  { value: 4, suffix: "X", label: "Average ROAS" },
-  { value: 20000, suffix: "+", label: "Qualified Leads Generated" },
+export const freeAuditDeliverables = [
+  {
+    title: "Ad Account Audit",
+    description:
+      "Campaign structure, audience targeting, and budget allocation review.",
+  },
+  {
+    title: "Tracking Check",
+    description:
+      "Pixel, CAPI, and GA4 setup — find gaps hurting your attribution.",
+  },
+  {
+    title: "Landing Page Review",
+    description:
+      "Conversion bottlenecks and quick wins to improve lead quality.",
+  },
+  {
+    title: "Competitor Snapshot",
+    description:
+      "What similar brands are running and where you can differentiate.",
+  },
+  {
+    title: "Growth Roadmap",
+    description: "Prioritized action plan tailored to your goals and budget.",
+  },
+  {
+    title: "Honest Fit Assessment",
+    description:
+      "Clear recommendation — whether we're the right partner or not.",
+  },
+];
+
+export const platforms = [
+  "Meta Ads",
+  "Google Analytics 4",
+  "Meta CAPI",
+  // "Google Tag Manager",
+  "Shopify",
+  "WooCommerce",
 ];
 
 export const services = [
@@ -28,222 +66,135 @@ export const services = [
     icon: "Meta",
     title: "Meta Ads",
     description:
-      "High-converting Facebook & Instagram campaigns that reach your ideal customers and drive qualified leads.",
+      "Facebook & Instagram campaigns built for qualified leads and profitable ROAS.",
   },
-  // {
-  //   icon: "Google",
-  //   title: "Google Ads",
-  //   description: "Search, Shopping, and Performance Max campaigns optimized for maximum ROAS and lead quality.",
-  // },
   {
     icon: "CRO",
-    title: "Conversion Rate Optimization",
+    title: "Conversion Optimization",
     description:
-      "Data-backed testing to turn more visitors into customers and lower your cost per acquisition.",
+      "Landing page and funnel improvements to lower cost per lead and boost conversions.",
   },
   {
     icon: "Landing",
-    title: "Landing Page Development",
+    title: "Landing Pages",
     description:
-      "Fast, conversion-focused landing pages designed to maximize ad spend efficiency.",
+      "Fast, conversion-focused pages designed to maximize your ad spend efficiency.",
   },
   {
     icon: "Funnel",
     title: "Funnel Strategy",
     description:
-      "End-to-end funnel architecture from awareness to conversion, built for scalable growth.",
-  },
-  {
-    icon: "Ecommerce",
-    title: "E-commerce Scaling",
-    description:
-      "Proven strategies to scale D2C and e-commerce brands profitably across channels.",
+      "End-to-end funnel planning from first click to booked call or purchase.",
   },
   {
     icon: "Leads",
     title: "Lead Generation",
     description:
-      "Targeted campaigns that deliver high-intent leads ready to convert into paying customers.",
+      "Targeted campaigns that bring in high-intent prospects ready to talk business.",
   },
   {
-    icon: "Automation",
-    title: "Marketing Automation",
+    icon: "Tracking",
+    title: "Tracking & Attribution",
     description:
-      "Automated workflows that nurture leads, recover carts, and maximize customer lifetime value.",
+      "Meta Pixel, CAPI, and GA4 setup so you know exactly what's driving results.",
   },
 ];
 
 export const whyChooseUs = [
   {
     title: "Data-Driven Decisions",
-    description: "Every strategy backed by analytics, not guesswork.",
+    description:
+      "Every recommendation backed by your numbers — not guesswork or trends.",
   },
   {
-    title: "Weekly Reporting",
-    description: "Transparent dashboards with actionable insights every week.",
+    title: "Transparent Reporting",
+    description:
+      "Clear weekly updates on spend, leads, and what's being tested next.",
   },
   {
-    title: "Transparent Communication",
-    description: "Direct access to your strategist. No black boxes.",
+    title: "Direct Communication",
+    description:
+      "Work directly with your strategist. No account manager middle layer.",
   },
   {
     title: "Fast Execution",
-    description: "Campaigns live within days, not weeks.",
+    description:
+      "Audit to live campaigns in days, with proper tracking from day one.",
   },
   {
-    title: "AI-Powered Optimization",
-    description: "Machine learning tools to maximize ad performance.",
+    title: "Creative Testing",
+    description:
+      "Structured A/B testing for ad copy and creatives to find winners faster.",
   },
   {
-    title: "Creative Testing Framework",
-    description: "Systematic A/B testing for winning ad creatives.",
-  },
-  {
-    title: "Advanced Audience Research",
-    description: "Deep audience insights for precise targeting.",
-  },
-  {
-    title: "Conversion Tracking",
-    description: "Full-funnel tracking with Meta CAPI & GA4 integration.",
+    title: "Full-Funnel Tracking",
+    description:
+      "Meta CAPI, Pixel, and GA4 integration for accurate attribution.",
   },
 ];
 
 export const processSteps = [
   {
     step: 1,
-    title: "Discovery Call",
+    title: "Free Discovery Call",
     description:
-      "We learn about your business, goals, and current marketing performance.",
+      "We learn about your business, goals, ad spend, and what's not working today.",
   },
   {
     step: 2,
-    title: "Business Audit",
+    title: "Account & Funnel Audit",
     description:
-      "Deep dive into your ads, funnels, tracking, and competitive landscape.",
+      "Deep review of your ads, landing pages, tracking, and competitive landscape.",
   },
   {
     step: 3,
-    title: "Campaign Strategy",
+    title: "Custom Strategy",
     description:
-      "Custom strategy with channel mix, budgets, and creative direction.",
+      "Channel mix, budget plan, creative direction, and a clear 90-day roadmap.",
   },
   {
     step: 4,
-    title: "Launch Campaigns",
-    description: "Rapid deployment with proper tracking and conversion setup.",
+    title: "Launch & Track",
+    description:
+      "Campaigns go live with Pixel, CAPI, and GA4 configured correctly from the start.",
   },
   {
     step: 5,
-    title: "Scale Winners",
+    title: "Optimize & Scale",
     description:
-      "Double down on what works. Cut what doesn't. Grow profitably.",
-  },
-];
-
-export const kpiResults = [
-  { label: "ROAS", value: 4.2, suffix: "x", decimals: 1 },
-  { label: "Revenue", value: 2.4, prefix: "₹", suffix: "Cr", decimals: 1 },
-  { label: "Cost Per Lead", value: 180, prefix: "₹", decimals: 0 },
-  { label: "CTR", value: 3.8, suffix: "%", decimals: 1 },
-  { label: "Conversion Rate", value: 6.2, suffix: "%", decimals: 1 },
-  { label: "CPA", value: 420, prefix: "₹", decimals: 0 },
-];
-
-export const caseStudies = [
-  {
-    industry: "E-commerce Brand",
-    challenge: "High ad spend with declining ROAS and rising CPAs on Meta.",
-    solution:
-      "Restructured campaigns, implemented CAPI tracking, and launched creative testing framework.",
-    results: "Achieved consistent profitability across all product lines.",
-    roasIncrease: "3.2x → 5.8x",
-    revenueGenerated: "₹1.2 Cr",
-    gradient: "from-blue-500/10 to-cyan-500/10",
-  },
-  // {
-  //   industry: "Lead Generation Business",
-  //   challenge: "Low-quality leads and high cost per acquisition from Google Ads.",
-  //   solution: "Built dedicated landing pages, refined audience targeting, and optimized bidding strategy.",
-  //   results: "Lead quality score improved by 60% with 40% lower CPL.",
-  //   roasIncrease: "2.1x → 4.5x",
-  //   revenueGenerated: "₹85 L",
-  //   gradient: "from-violet-500/10 to-blue-500/10",
-  // },
-  {
-    industry: "Local Service Business",
-    challenge: "Inconsistent lead flow and no tracking on offline conversions.",
-    solution:
-      "Set up local campaigns, call tracking, and conversion-optimized landing pages.",
-    results: "Steady pipeline of 150+ qualified leads per month.",
-    roasIncrease: "1.8x → 4.2x",
-    revenueGenerated: "₹45 L",
-    gradient: "from-emerald-500/10 to-cyan-500/10",
-  },
-];
-
-export const testimonials = [
-  {
-    name: "Rahul Sharma",
-    company: "TechGear India",
-    role: "Founder & CEO",
-    review:
-      "ScaleYield transformed our Meta Ads performance. We went from burning money to 4.5x ROAS in just 3 months. Their data-driven approach is unmatched.",
-    rating: 5,
-    initials: "RS",
-  },
-  {
-    name: "Priya Menon",
-    company: "GlowSkin Co.",
-    role: "Marketing Director",
-    review:
-      "The team is incredibly responsive and transparent. Weekly reports keep us informed, and their CRO work doubled our landing page conversion rate.",
-    rating: 5,
-    initials: "PM",
-  },
-  {
-    name: "Arjun Patel",
-    company: "HomeFix Services",
-    role: "Owner",
-    review:
-      "We tried 3 agencies before ScaleYield. They're the only ones who actually understood our local market and delivered consistent, qualified leads.",
-    rating: 5,
-    initials: "AP",
-  },
-  {
-    name: "Sneha Reddy",
-    company: "FitLife Nutrition",
-    role: "Co-Founder",
-    review:
-      "From strategy to execution, everything was seamless. Our Google Ads CPA dropped by 45% while lead volume increased 3x. Highly recommend.",
-    rating: 5,
-    initials: "SR",
+      "Double down on winners, cut losers, and grow profitably based on real data.",
   },
 ];
 
 export const faqs = [
   {
-    question: "How much budget do I need?",
+    question: "Why should I trust you?",
     answer:
-      "We typically work with businesses spending ₹50,000+ per month on ads. However, we offer a free strategy call to assess your situation and recommend the right starting budget for your goals.",
+      "We don't inflate with fake case studies. Book a free audit and we'll show you exactly what we'd fix in your account — with real findings, not sales fluff. If we're not the right fit, we'll tell you.",
   },
   {
-    question: "How long before seeing results?",
+    question: "What's included in the free audit?",
     answer:
-      "Most clients see measurable improvements within 30–45 days. Full optimization and scaling typically happen within 60–90 days, depending on your industry and ad spend level.",
+      "A review of your ad account, tracking setup, landing page, and competitors — plus a prioritized growth roadmap. It takes about 30 minutes and there's no obligation to work with us.",
   },
   {
-    question: "Do you manage creatives?",
+    question: "How much ad budget do I need?",
     answer:
-      "Yes. We handle ad creative strategy, copywriting, and can produce static and video creatives. We also work with your existing creative assets and optimize them for performance.",
+      "We typically work with businesses spending ₹50,000+ per month on ads. On the strategy call we'll assess your situation and recommend a realistic starting budget.",
   },
   {
-    question: "Do you work internationally?",
+    question: "How long before I see results?",
     answer:
-      "Absolutely. While we're based in India, we manage campaigns for clients across the US, UK, UAE, Australia, and Southeast Asia. We adapt strategies to each market.",
+      "Tracking and quick wins often show within the first 2–3 weeks. Meaningful campaign optimization usually takes 30–60 days depending on your industry and spend level.",
   },
   {
-    question: "How are you different?",
+    question: "Do you require long-term contracts?",
     answer:
-      "We combine performance marketing expertise with conversion optimization and full-funnel tracking. No vanity metrics — we focus on revenue, ROAS, and qualified leads that grow your business profitably.",
+      "No. We work month-to-month because we believe results should earn your trust — not a locked-in agreement.",
+  },
+  {
+    question: "Do you manage ad creatives?",
+    answer:
+      "Yes. We handle creative strategy, ad copy, and static creatives. We can also work with your existing assets and optimize them for performance.",
   },
 ];

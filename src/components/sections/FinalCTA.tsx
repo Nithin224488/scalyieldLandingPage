@@ -9,20 +9,20 @@ export function FinalCTA() {
 
       <div className="relative mx-auto max-w-4xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-          Ready to Scale Your Business?
+          Ready for an Honest Look at Your Ads?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-500">
-          Book a free strategy call and discover how data-driven performance marketing
-          can transform your growth.
+          Book a free strategy call. We&apos;ll audit your setup and tell you
+          exactly what we&apos;d change — whether you work with us or not.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href="#contact">
+          <a href="/#contact">
             <Button size="lg">
               Book Free Consultation
               <ArrowRight className="h-4 w-4" />
             </Button>
           </a>
-          <a href="#contact">
+          <a href="/#contact">
             <Button variant="outline" size="lg">
               Get Free Audit
             </Button>

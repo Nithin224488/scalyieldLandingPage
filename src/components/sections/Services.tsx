@@ -12,6 +12,7 @@ import {
   Search,
   ShoppingCart,
   Target,
+  Radio,
   Zap,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -26,6 +27,7 @@ const iconMap: Record<string, ElementType> = {
   Ecommerce: ShoppingCart,
   Leads: Target,
   Automation: Zap,
+  Tracking: Radio,
 };
 
 export function Services() {
@@ -33,11 +35,11 @@ export function Services() {
     <Section id="services">
       <SectionHeading
         badge="Our Services"
-        title="Everything You Need to Scale"
-        subtitle="Full-funnel performance marketing services designed to generate qualified leads and maximize your return on ad spend."
+        title="What We Help You With"
+        subtitle="Focused services for businesses that want more leads and better attribution — without spreading thin."
       />
 
-      <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => {
           const Icon = iconMap[service.icon] || Globe;
           return (

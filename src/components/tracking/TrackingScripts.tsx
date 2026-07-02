@@ -6,7 +6,6 @@ export function TrackingScripts() {
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   return (
     <>
-      {console.log("TrackingScripts", pixelId)}
       {/* Google Tag Manager */}
       {gtmId && !gtmId.includes("XXXX") && (
         <>

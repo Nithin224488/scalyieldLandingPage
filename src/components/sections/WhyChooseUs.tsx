@@ -5,27 +5,25 @@ import { Section, SectionHeading } from "@/components/ui/SectionHeading";
 import { StaggerContainer, StaggerItem } from "@/components/ui/FadeIn";
 import {
   BarChart3,
-  Bot,
   Eye,
   FlaskConical,
   MessageSquare,
-  Radar,
   Rocket,
   Target,
 } from "lucide-react";
 
-const icons = [BarChart3, Eye, MessageSquare, Rocket, Bot, FlaskConical, Radar, Target];
+const icons = [BarChart3, Eye, MessageSquare, Rocket, FlaskConical, Target];
 
 export function WhyChooseUs() {
   return (
-    <Section className="bg-slate-50/50">
+    <Section id="why-us" className="bg-slate-50/50">
       <SectionHeading
         badge="Why Choose Us"
         title="Built for Performance, Not Promises"
-        subtitle="We combine strategy, execution, and optimization into a system that consistently delivers results."
+        subtitle="A focused approach to Meta Ads, tracking, and conversion — without the agency fluff."
       />
 
-      <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {whyChooseUs.map((item, i) => {
           const Icon = icons[i];
           return (
