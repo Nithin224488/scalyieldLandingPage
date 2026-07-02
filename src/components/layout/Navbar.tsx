@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,31 +27,31 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="/#" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white shadow-lg shadow-primary/30">
             SY
           </div>
           <span className="text-lg font-bold tracking-tight text-slate-900">
             {siteConfig.name}
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-slate-600 transition-colors hover:text-primary"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="/#contact">
+          <Link href="/#contact">
             <Button size="sm">Get Free Strategy Call</Button>
-          </a>
+          </Link>
         </div>
 
         <button
@@ -70,20 +71,20 @@ export function Navbar() {
         <div className="border-t border-slate-200/60 bg-white/95 px-4 py-4 backdrop-blur-xl lg:hidden">
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-primary"
                 onClick={() => setIsMobileOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a href="/#contact" onClick={() => setIsMobileOpen(false)}>
+            <Link href="/#contact" onClick={() => setIsMobileOpen(false)}>
               <Button className="w-full" size="sm">
                 Get Free Strategy Call
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       )}

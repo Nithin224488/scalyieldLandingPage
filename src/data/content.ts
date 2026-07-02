@@ -6,7 +6,7 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-  { label: "Services", href: "#services" },
+  { label: "Services", href: "/#services" },
   { label: "Why Us", href: "/#why-us" },
   { label: "Process", href: "/#process" },
   { label: "Free Audit", href: "/#free-audit" },

@@ -6,6 +6,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { useHydrated } from "@/hooks/useHydrated";
 import { ArrowRight, CheckCircle2, ClipboardList } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 function AuditPreviewCard() {
   const hydrated = useHydrated();
@@ -109,13 +110,13 @@ export function Hero() {
 
               <FadeIn delay={0.3}>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <a href="#contact">
+                  <Link href="/#contact">
                     <Button size="lg" className="w-full sm:w-auto">
                       Book Free Strategy Call
                       <ArrowRight className="h-4 w-4" />
                     </Button>
-                  </a>
-                  <a href="/#free-audit">
+                  </Link>
+                  <Link href="/#free-audit">
                     <Button
                       variant="outline"
                       size="lg"
@@ -123,7 +124,7 @@ export function Hero() {
                     >
                       See What&apos;s Included
                     </Button>
-                  </a>
+                  </Link>
                 </div>
               </FadeIn>
 
