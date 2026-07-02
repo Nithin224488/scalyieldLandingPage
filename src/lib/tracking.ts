@@ -86,8 +86,8 @@ export async function submitToWebhook(
 ): Promise<boolean> {
   const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL;
   if (!webhookUrl || webhookUrl.includes("YOUR_SCRIPT_ID")) {
-    console.warn("Webhook URL not configured. Form data:", data);
-    return true;
+    console.error("Webhook URL not configured. Form data was not saved:", data);
+    return false;
   }
   console.log("Submitting to webhook:", webhookUrl, data);
   try {

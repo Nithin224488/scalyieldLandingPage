@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export:verify": "node scripts/verify-pixel-export.mjs"
+    "export:verify": "node scripts/verify-pixel-export.mjs",
+    "export:verify:webhook": "node scripts/verify-webhook-export.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
