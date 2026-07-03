@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "ScalYield",
   tagline: "Performance Marketing Agency",
-  email: "hello@scaleyield.com",
-  phone: "+91 98765 43210",
+  email: "nithinatwork96@gmail.com",
+  phone: "+91 9895958176",
 };
 
 export const navLinks = [
