@@ -18,13 +18,13 @@ export function FinalCTA() {
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <AnchorLink href="/#contact">
-            <Button size="lg">
+            <Button size="lg" className="cursor-pointer">
               Book Free Consultation
               <ArrowRight className="h-4 w-4" />
             </Button>
           </AnchorLink>
           <AnchorLink href="/#contact">
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" className="cursor-pointer">
               Get Free Audit
             </Button>
           </AnchorLink>

@@ -47,7 +47,7 @@ export default function ThankYouPage() {
         </div>
 
         <Link href="/" className="mt-8 inline-block">
-          <Button variant="outline">
+          <Button variant="outline" className="cursor-pointer">
             Back to Homepage
             <ArrowRight className="h-4 w-4" />
           </Button>
