@@ -122,7 +122,11 @@ export function ContactForm() {
     <>
       <Section id="contact" className="bg-slate-50/50">
         <div className="flex justify-center items-center mb-2">
-          <img src="/logo.png" alt={siteConfig.name} className="h-6 w-10" />
+          <img
+            src={`scalyieldLandingPage/logo.png`}
+            alt={siteConfig.name}
+            className="h-6 w-10"
+          />
           <span className="text-lg font-bold text-slate-900">
             {siteConfig.name}
           </span>

@@ -10,7 +10,11 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2">
-              <img src="/logo.png" alt={siteConfig.name} className="h-6 w-10" />
+              <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`}
+                alt={siteConfig.name}
+                className="h-6 w-10"
+              />
 
               <span className="text-lg font-bold text-slate-900">
                 {siteConfig.name}

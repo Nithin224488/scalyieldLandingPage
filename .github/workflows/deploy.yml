@@ -39,6 +39,7 @@ jobs:
           NEXT_PUBLIC_GA4_MEASUREMENT_ID: ${{ vars.NEXT_PUBLIC_GA4_MEASUREMENT_ID }}
           NEXT_PUBLIC_GTM_ID: ${{ vars.NEXT_PUBLIC_GTM_ID }}
           NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL: ${{ vars.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL }}
+          NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
 
       - name: Verify Meta Pixel is in exported HTML
         run: grep -qE 'meta-pixel|fbq\(' out/index.html
