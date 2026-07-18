@@ -27,6 +27,7 @@ import { Button } from "@/components/ui/Button";
 import { Loader2, Send } from "lucide-react";
 import CalenderPopUp from "./CalenderPopUp";
 import Calendly from "./Calendly";
+import { siteConfig } from "@/data/content";
 
 const inputClass =
   "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20";
@@ -120,8 +121,14 @@ export function ContactForm() {
   return (
     <>
       <Section id="contact" className="bg-slate-50/50">
+        <div className="flex justify-center items-center mb-2">
+          <img src="/logo.png" alt={siteConfig.name} className="h-6 w-10" />
+          <span className="text-lg font-bold text-slate-900">
+            {siteConfig.name}
+          </span>
+        </div>
         <SectionHeading
-          badge="Get Started"
+          badge="Get Started Today"
           title="Book Your Free Strategy Call"
           subtitle="Tell us about your business and we'll create a custom growth plan for you."
         />

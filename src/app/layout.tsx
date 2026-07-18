@@ -40,6 +40,9 @@ export const metadata: Metadata = {
       "Free Meta Ads audit and performance marketing for growing businesses.",
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

@@ -10,9 +10,8 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white">
-                SY
-              </div>
+              <img src="/logo.png" alt={siteConfig.name} className="h-6 w-10" />
+
               <span className="text-lg font-bold text-slate-900">
                 {siteConfig.name}
               </span>
@@ -86,7 +85,10 @@ export function Footer() {
             >
               Privacy Policy
             </Link>
-            <Link href="/" className="text-sm text-slate-400 hover:text-primary">
+            <Link
+              href="/"
+              className="text-sm text-slate-400 hover:text-primary"
+            >
               Terms of Service
             </Link>
           </div>
