@@ -11,11 +11,14 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2">
               <img
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`}
+                src={
+                  process.env.NODE_ENV === "production"
+                    ? `/${process.env.NEXT_PUBLIC_BASE_PATH}/logo.png`
+                    : "/logo.png"
+                }
                 alt={siteConfig.name}
                 className="h-6 w-10"
               />
-
               <span className="text-lg font-bold text-slate-900">
                 {siteConfig.name}
               </span>

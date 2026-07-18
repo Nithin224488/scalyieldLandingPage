@@ -123,7 +123,11 @@ export function ContactForm() {
       <Section id="contact" className="bg-slate-50/50">
         <div className="flex justify-center items-center mb-2">
           <img
-            src={`scalyieldLandingPage/logo.png`}
+            src={
+              process.env.NODE_ENV === "production"
+                ? `/${process.env.NEXT_PUBLIC_BASE_PATH}/logo.png`
+                : "/logo.png"
+            }
             alt={siteConfig.name}
             className="h-6 w-10"
           />

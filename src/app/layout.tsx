@@ -41,7 +41,11 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: {
-    icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.png`,
+    icon: `${
+      process.env.NODE_ENV === "production"
+        ? `/${process.env.NEXT_PUBLIC_BASE_PATH}/logo.png`
+        : "/logo.png"
+    }`,
   },
 };
 
