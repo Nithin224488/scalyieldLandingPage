@@ -43,8 +43,8 @@ export function Navbar() {
             <img
               src={
                 process.env.NODE_ENV === "production"
-                  ? `/${process.env.NEXT_PUBLIC_BASE_PATH}/logo.png`
-                  : "/logo.png"
+                  ? `/${process.env.NEXT_PUBLIC_BASE_PATH}/logo.webp`
+                  : "/logo.webp"
               }
               alt={siteConfig.name}
               className="h-6 w-10"
